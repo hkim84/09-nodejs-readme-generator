@@ -40,7 +40,8 @@ const questions = [
             'GNU AGPLv3',
             'GNU FDLv1.3',
             'Mozilla public license 2.0', 
-            'MIT license',  
+            'MIT license',
+            'None',  
         ]
     },
 
@@ -71,7 +72,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateMarkdown(data), function (err) {
+    fs.writeFile(`./develop/${fileName}.md`, generateMarkdown(data), function (err) {
         if (err) {
           return console.log(err);
         }
@@ -80,7 +81,11 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then(function(data){
+        writeToFile('README', data)
+    })
+}
 
 // Function call to initialize app
 init();
