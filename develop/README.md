@@ -7,7 +7,6 @@
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
-  * [licensebadge](#license-badge)
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions) 
@@ -17,7 +16,7 @@
   
   ## License
   Apache 2.0
-  ![license Badge](NaN)
+  Licensed under [Apache 2.0](undefined)
   ## Contributing
   
   ## Tests

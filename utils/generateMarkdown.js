@@ -18,19 +18,19 @@
 function renderLicenseBadge(license) {
   switch(license) {
     case 'Apache 2.0':
-      return 'https://img.shields.io/badge/License-Apache_2.0-blue.svg';
+      return '[![license : Apached 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]';
     
     case 'GNU GPLv2':
-      return 'https://img.shields.io/badge/License-GPL_v2-blue.svg';
+      return '[![license : GNU GPLv2](https://img.shields.io/badge/License-GPL_v2-blue.svg)]';
    
     case 'GNU AGPLv3':
-      return 'https://img.shields.io/badge/License-AGPL_v3-blue.svg';
+      return '[![license : GNU AGPLv3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)]';
     
     case 'MIT':
-      return 'https://img.shields.io/badge/License-MIT-yellow.svg';
+      return '[![license : MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]';
   
     case 'Mozilla 2.0':
-      return 'https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg';
+      return '[![license : Mozilla 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)]';
  
     case 'None':
       return '';
@@ -43,19 +43,19 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   switch (license) {
     case 'Apache 2.0':
-      return 'https://opensource.org/licenses/Apache-2.0';
+      return '${renderLicenseBadge}(https://opensource.org/licenses/Apache-2.0)';
     
     case 'GNU GPLv2':
-      return 'https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html';
+      return '${renderLicenseBadge}(https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)';
    
     case 'GNU AGPLv3':
-      return 'https://www.gnu.org/licenses/agpl-3.0';
+      return '${renderLicenseBadge}(https://www.gnu.org/licenses/agpl-3.0)';
     
     case 'MIT':
-      return 'hhttps://opensource.org/licenses/MIT';
+      return '${renderLicenseBadge}(https://opensource.org/licenses/MIT)';
   
     case 'Mozilla 2.0':
-      return 'https://opensource.org/licenses/MPL-2.0';
+      return '${renderLicenseBadge}(https://opensource.org/licenses/MPL-2.0)';
  
     case 'None':
       return '';
@@ -65,8 +65,16 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  return renderLicenseBadge(license) + renderLicenseLink(license)
+  if (license === "None") {
+    return "No license";
+  } else {
+    return `Licensed under [${license}](${renderLicenseLink(license)})`;
+  }
 }
+  
+    
+  
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -79,7 +87,6 @@ function generateMarkdown(data) {
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
-  * [licensebadge](#license-badge)
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions) 
@@ -89,7 +96,7 @@ function generateMarkdown(data) {
   ${data.usage}
   ## License
   ${data.license}
-  (${renderLicenseSection(data.license)})
+  ${renderLicenseSection(data.license)}
   ## Contributing
   ${data.contributing}
   ## Tests
