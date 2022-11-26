@@ -20,8 +20,52 @@ const questions = [
 
     {
         type:'input',
-        name:'table of contents',
-        message:'escription of your project your building?',
+        name:'installation',
+        message:'How to install required software to run program.',
+    },
+
+    {
+        type:'input',
+        name:'usage',
+        message:'what is the use of this project',
+    },
+
+    {
+        type:'input',
+        name:'license',
+        message:'Select a license this project uses?',
+        choices: [
+            'Apache license 2.0',
+            'GNU GPLv2',
+            'GNU AGPLv3',
+            'GNU FDLv1.3',
+            'Mozilla public license 2.0', 
+            'MIT license',  
+        ]
+    },
+
+    {
+        type:'input',
+        name:'contributing',
+        message:'How can others contribute to this project',
+    },
+
+    {
+        type:'input',
+        name:'test',
+        message:'Instruction of how to test this program',
+    },
+
+    {
+        type:'input',
+        name:'userName',
+        message:'Enter your Github user name?',
+    },
+
+    {
+        type:'input',
+        name:'email',
+        message:'Enter your email address',
     },
 ];
 
