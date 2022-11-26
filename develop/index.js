@@ -38,10 +38,9 @@ const questions = [
             'Apache license 2.0',
             'GNU GPLv2',
             'GNU AGPLv3',
-            'GNU FDLv1.3',
-            'Mozilla public license 2.0', 
             'MIT license',
-            'None',
+            'Mozilla public license 2.0', 
+            E'None',
         ],
     },
 
