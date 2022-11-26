@@ -31,7 +31,7 @@ const questions = [
     },
 
     {
-        type:'input',
+        type:'checkbox',
         name:'license',
         message:'Select a license this project uses?',
         choices: [
@@ -41,8 +41,8 @@ const questions = [
             'GNU FDLv1.3',
             'Mozilla public license 2.0', 
             'MIT license',
-            'None',  
-        ]
+            'None',
+        ],
     },
 
     {
