@@ -16,9 +16,8 @@
   ## Usage
   
   ## License
-  Apache license 2.0
-  ## License Badge
-  NaN
+  Apache 2.0
+  ![license Badge](NaN)
   ## Contributing
   
   ## Tests

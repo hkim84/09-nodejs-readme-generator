@@ -35,12 +35,12 @@ const questions = [
         name:'license',
         message:'Select a license this project uses?',
         choices: [
-            'Apache license 2.0',
+            'Apache 2.0',
             'GNU GPLv2',
             'GNU AGPLv3',
-            'MIT license',
-            'Mozilla public license 2.0', 
-            E'None',
+            'MIT',
+            'Mozilla 2.0', 
+            'None',
         ],
     },
 

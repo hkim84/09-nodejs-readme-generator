@@ -9,13 +9,58 @@
 // MIT [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 // MOZILLA PUBLIC [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)]
 // (https://opensource.org/licenses/MPL-2.0)
+            // 'Apache 2.0',
+            // 'GNU GPLv2',
+            // 'GNU AGPLv3',
+            // 'MIT',
+            // 'Mozilla 2.0', 
+            // 'None',
 function renderLicenseBadge(license) {
+  switch(license) {
+    case 'Apache 2.0':
+      return 'https://img.shields.io/badge/License-Apache_2.0-blue.svg';
+    
+    case 'GNU GPLv2':
+      return 'https://img.shields.io/badge/License-GPL_v2-blue.svg';
+   
+    case 'GNU AGPLv3':
+      return 'https://img.shields.io/badge/License-AGPL_v3-blue.svg';
+    
+    case 'MIT':
+      return 'https://img.shields.io/badge/License-MIT-yellow.svg';
+  
+    case 'Mozilla 2.0':
+      return 'https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg';
+ 
+    case 'None':
+      return '';
+  }
   
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  switch (license) {
+    case 'Apache 2.0':
+      return 'https://opensource.org/licenses/Apache-2.0';
+    
+    case 'GNU GPLv2':
+      return 'https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html';
+   
+    case 'GNU AGPLv3':
+      return 'https://www.gnu.org/licenses/agpl-3.0';
+    
+    case 'MIT':
+      return 'hhttps://opensource.org/licenses/MIT';
+  
+    case 'Mozilla 2.0':
+      return 'https://opensource.org/licenses/MPL-2.0';
+ 
+    case 'None':
+      return '';
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -44,8 +89,7 @@ function generateMarkdown(data) {
   ${data.usage}
   ## License
   ${data.license}
-  ## License Badge
-  ${renderLicenseSection(data.license)}
+  (${renderLicenseSection(data.license)})
   ## Contributing
   ${data.contributing}
   ## Tests
