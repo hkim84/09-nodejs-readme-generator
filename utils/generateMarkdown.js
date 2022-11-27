@@ -15,63 +15,128 @@
             // 'MIT',
             // 'Mozilla 2.0', 
             // 'None',
-function renderLicenseBadge(license) {
-  switch(license) {
-    case 'Apache 2.0':
-      return '[![license : Apached 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]';
+
+            function renderLicenseBadge(license) {
+              if (license === 'none') {
+               return ''
+              } else {
+               return `![License Badge](https://img.shields.io/badge/License-${license}-blueviolet)`
+              }
+             
+             };
+// function renderLicenseBadge(license) {
+//   switch(license) {
+//     case 'Apache 2.0':
+//       return `[![license : Apached 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]`;
     
-    case 'GNU GPLv2':
-      return '[![license : GNU GPLv2](https://img.shields.io/badge/License-GPL_v2-blue.svg)]';
+//     case 'GNU GPLv2':
+//       return `[![license : GNU GPLv2](https://img.shields.io/badge/License-GPL_v2-blue.svg)]`;
    
-    case 'GNU AGPLv3':
-      return '[![license : GNU AGPLv3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)]';
+//     case 'GNU AGPLv3':
+//       return `[![license : GNU AGPLv3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)]`;
     
-    case 'MIT':
-      return '[![license : MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]';
+//     case 'MIT':
+//       return `[![license : MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]`;
   
-    case 'Mozilla 2.0':
-      return '[![license : Mozilla 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)]';
+//     case 'Mozilla 2.0':
+//       return `[![license : Mozilla 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)]`;
  
-    case 'None':
-      return '';
-  }
+//     case 'None':
+//       return ''
+//   }
   
-}
+// }
+
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  switch (license) {
-    case 'Apache 2.0':
-      return '${renderLicenseBadge}(https://opensource.org/licenses/Apache-2.0)';
-    
-    case 'GNU GPLv2':
-      return '${renderLicenseBadge}(https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)';
-   
-    case 'GNU AGPLv3':
-      return '${renderLicenseBadge}(https://www.gnu.org/licenses/agpl-3.0)';
-    
-    case 'MIT':
-      return '${renderLicenseBadge}(https://opensource.org/licenses/MIT)';
-  
-    case 'Mozilla 2.0':
-      return '${renderLicenseBadge}(https://opensource.org/licenses/MPL-2.0)';
- 
-    case 'None':
-      return '';
+  if (license === 'none') {
+   return ''
+  } else {
+   return  `[${license} License](https://choosealicense.com/licenses/${license}/)`
   }
-}
+  
+  };
+
+
+// function renderLicenseLink(license) {
+//   switch (license) {
+//     case 'Apache 2.0':
+//       return `[${renderLicenseBadge(license)}](https://opensource.org/licenses/Apache-2.0)`;
+    
+//     case 'GNU GPLv2':
+//       return `[${renderLicenseBadge(license)}](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
+   
+//     case 'GNU AGPLv3':
+//       return `[${renderLicenseBadge(license)}](https://www.gnu.org/licenses/agpl-3.0)`;
+    
+//     case 'MIT':
+//       return `[${renderLicenseBadge(license)}](https://opensource.org/licenses/MIT)`;
+  
+//     case 'Mozilla 2.0':
+//       return `[${renderLicenseBadge(license)}](https://opensource.org/licenses/MPL-2.0)`;
+ 
+//     case 'None':
+//       return '';
+//   }
+// }
+
+// function renderLicenseLink(license) {
+//   switch (license) {
+//     case 'Apache 2.0':
+//       return 'https://opensource.org/licenses/Apache-2.0';
+    
+//     case 'GNU GPLv2':
+//       return 'https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html';
+   
+//     case 'GNU AGPLv3':
+//       return 'https://www.gnu.org/licenses/agpl-3.0';
+    
+//     case 'MIT':
+//       return 'https://opensource.org/licenses/MIT';
+  
+//     case 'Mozilla 2.0':
+//       return 'https://opensource.org/licenses/MPL-2.0';
+ 
+//     case 'None':
+//       return '';
+//   }
+// }
+
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license === "None") {
-    return "No license";
+  if (license === 'none') {
+    return ''
   } else {
-    return `Licensed under [${license}](${renderLicenseLink(license)})`;
+   return `licensed under ${renderLicenseLink(license)}`
   }
-}
-  
+    
+  };
+
+// function renderLicenseSection(license) {
+//   if (license === 'None') {
+//     return 'No license';
+//   } else {
+//     return 'Licensed under ${renderLicenseLink(license)}';
+    
+//   }
+// } 
+
+// function renderLicenseSection(license) {
+//   return 'licensed under (renderLicenseLink(license))';
+// }
+// function renderLicenseSection(license) {
+//   if (license === 'None') {
+//     return 'No license';
+//   } else {
+//     return 'Licensed under renderLicenseLink(license)';
+    
+//   }
+// } 
+
     
   
 
@@ -96,6 +161,7 @@ function generateMarkdown(data) {
   ${data.usage}
   ## License
   ${data.license}
+  ${renderLicenseBadge(data.license)}
   ${renderLicenseSection(data.license)}
   ## Contributing
   ${data.contributing}

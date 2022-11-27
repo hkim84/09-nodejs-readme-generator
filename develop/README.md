@@ -15,8 +15,9 @@
   ## Usage
   
   ## License
-  Apache 2.0
-  Licensed under [Apache 2.0](undefined)
+  mit
+  ![License Badge](https://img.shields.io/badge/License-mit-blueviolet)
+  licensed under [mit License](https://choosealicense.com/licenses/mit/)
   ## Contributing
   
   ## Tests
