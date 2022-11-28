@@ -8,26 +8,59 @@ const questions = [
 // add Project Name, Description, Table of Contents, Installation, Usage, License, Contributing, Tests, Question, Github Username, and Email.
     {
         type:'input',
-        name:'name',
+        name:'title',
         message:'What is title of your project?',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter a title!');
+                return false;
+            }
+        }
     },
 
     {
         type:'input',
         name:'description',
-        message:'A description of your project your building?',
+        message:'A decription of your project?',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter a description!');
+                return false;
+            }
+        }   
     },
 
     {
         type:'input',
         name:'installation',
-        message:'How to install required software to run program.',
+        message:'Required installation to run program',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter info on installation!');
+                return false;
+            }
+        }  
+
     },
 
     {
         type:'input',
         name:'usage',
         message:'what is the use of this project',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter info on usage of project!');
+                return false;
+            }
+        }  
     },
 
     {
@@ -53,43 +86,83 @@ const questions = [
         type:'input',
         name:'contributing',
         message:'How can others contribute to this project',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter how to contribue!');
+                return false;
+            }
+        } 
     },
 
     {
         type:'input',
         name:'test',
         message:'Instruction of how to test this program',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter info on testing!');
+                return false;
+            }
+        } 
     },
 
     {
         type:'input',
-        name:'userName',
+        name:'githubUsername',
         message:'Enter your Github user name?',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter Github username!');
+                return false;
+            }
+        } 
     },
 
     {
         type:'input',
-        name:'email',
+        name:'emailAddress',
         message:'Enter your email address',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('Please enter your email address!');
+                return false;
+            }
+        } 
     },
 ];
 
 // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
+//     fs.writeFile(`${fileName}.md`, generateMarkdown(data), function (err) {
+//         if (err) {
+//           return console.log(err);
+//         }
+//         console.log("Readme.md has been created!");
+//       });
+// };
 function writeToFile(fileName, data) {
-    fs.writeFile(`${fileName}.md`, generateMarkdown(data), function (err) {
-        if (err) {
-          return console.log(err);
-        }
-        console.log("Readme.md has been created!");
-      });
-}
+    return fs.writeFile(fileName, data, (err) => {
+          console.log(err)
+  })
+};
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions).then(function(data){
-        writeToFile('README', data)
-    })
-}
+    inquirer.prompt(questions)
+    .then((response) => {
+        const readMe = generateMarkdown(response)
+        writeToFile('README', readMe)
+        // console.log('readme.md has been created')
+    });
+};
 
 // Function call to initialize app
 init();
