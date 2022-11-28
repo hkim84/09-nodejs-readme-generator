@@ -98,7 +98,7 @@ const questions = [
 
     {
         type:'input',
-        name:'test',
+        name:'tests',
         message:'Instruction of how to test this program',
         validate: input => {
             if (input) {
@@ -151,16 +151,18 @@ const questions = [
 function writeToFile(fileName, data) {
     return fs.writeFile(fileName, data, (err) => {
           console.log(err)
-  })
+        }
+  )
 };
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then((response) => {
+        console.log(response)
         const readMe = generateMarkdown(response)
-        writeToFile('README', readMe)
-        // console.log('readme.md has been created')
+        writeToFile('README.md', readMe)
+        console.log('readme.md has been created')
     });
 };
 

@@ -171,7 +171,7 @@ function generateMarkdown(data) {
   Github
   https://github.com/${data.githubUsername}
   Email
-  ${data.emailAddress}
+  [${data.emailAddress}](mailto:${data.emailAddress})
 `;
 }
 
