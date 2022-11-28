@@ -140,31 +140,28 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-//     fs.writeFile(`${fileName}.md`, generateMarkdown(data), function (err) {
-//         if (err) {
-//           return console.log(err);
-//         }
-//         console.log("Readme.md has been created!");
-//       });
-// };
 function writeToFile(fileName, data) {
-    return fs.writeFile(fileName, data, (err) => {
-          console.log(err)
-        }
-  )
-};
+    fs.writeFile(`${fileName}.md`, generateMarkdown(data), (err) => {
+        if (err) {
+            console.log("There is an error");
+            throw err;
+        };
+        console.log('README has been created');
+    });
+}
+
+
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions)
-    .then((response) => {
-        console.log(response)
-        const readMe = generateMarkdown(response)
-        writeToFile('README.md', readMe)
-        console.log('readme.md has been created')
+    inquirer
+    .prompt(questions)
+    .then((theAnswers) => {
+        const {ReadMe} = theAnswers;
+        writeToFile('ReadMe',theAnswers);
     });
-};
+}
+
 
 // Function call to initialize app
 init();
