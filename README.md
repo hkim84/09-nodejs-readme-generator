@@ -5,7 +5,7 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [videoandscreenshot](#video-and-screenhot)
+* [video](#video)
 * [github page](#github-page)
 ## Description
 
@@ -19,7 +19,9 @@ Install npm i inquier@8.2.6
 
 To build a generator and learn how to use node as a server side js code input.
 
-## Video and Screenhot
+## Video 
+[video](../09-nodejs-readme-generator/video/09read%20me%20generator.webm)
+
 
 ## Github page
 
